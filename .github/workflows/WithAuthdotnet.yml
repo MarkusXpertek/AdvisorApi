@@ -17,7 +17,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-    - run:  echo "//npm.pkg.github.com/:3c0f9e62852af2784a1cf6aeeea6614541df23b0" > .npmrc
+    - run:  echo "//npm.pkg.github.com/:9b14cdf2ccabad515ea0bef1365bd9a438e1282c" > .npmrc
             echo "@MarkusXpertek:registry=https://npm.pkg.github.com/" >> .npmrc
     - name: Restore dependencies
       run: dotnet restore
