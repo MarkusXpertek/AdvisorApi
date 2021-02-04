@@ -26,7 +26,7 @@ namespace AdvisorApi.Controllers
             {
                 mod obj = new mod();
                 obj.msge = Xpert.Advice();
-                return View(obj);
+                return View(obj + " and /n");
             }
             else
             {
