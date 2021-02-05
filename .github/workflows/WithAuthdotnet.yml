@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: ngpkgLogin  
-      run: echo "//npm.pkg.github.com/:6dcaa538d2094680d14ae81b4e1761afbce2f7f1" > .npmrc |
+      run: echo "//npm.pkg.github.com/:5ba6bbdf2c9f9d2c52d5789270b44e07fbc38167" > .npmrc |
            echo "@MarkusXpertek:registry=https://npm.pkg.github.com/" >> .npmrc
     - name: Restore dependencies
       run: dotnet restore
