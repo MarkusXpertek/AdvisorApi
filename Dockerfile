@@ -13,7 +13,7 @@ ARG Nuget_CustomFeedPassword
 
 WORKDIR /src
 COPY ["nuget.config", "/"]
-COPY ["AdvisorApi.csproj", "AdvisorApi/"]
+COPY ["AdvisorApi/AdvisorApi.csproj", "AdvisorApi/"]
 RUN dotnet restore "AdvisorApi/AdvisorApi.csproj"
 COPY . .
 WORKDIR "/src/AdvisorApi"
