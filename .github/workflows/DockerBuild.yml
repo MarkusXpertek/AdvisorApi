@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s) --build-arg Nuget_PasswordArg=37139415e54e556ac3a7c2b3cafd831e9d274e47
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s) --build-arg Nuget_PasswordArg=${NUGET_CUSTOMFEEDPASSWORD}
