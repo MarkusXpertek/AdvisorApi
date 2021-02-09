@@ -8,12 +8,15 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 
-ARG Nuget_CustomFeedUserName
-ARG Nuget_CustomFeedPassword
 
 WORKDIR /src
 COPY ["nuget.config", "/"]
 COPY ["AdvisorApi/AdvisorApi.csproj", "AdvisorApi/"]
+
+ARG Nuget_PasswordArg
+ENV Nuget_PasswordEnv=$Nuget_PasswordArg
+RUN echo "ARG $Nuget_PasswordArg, ENV $Nuget_PasswordEnv"
+
 RUN dotnet restore "AdvisorApi/AdvisorApi.csproj"
 COPY . .
 WORKDIR "/src/AdvisorApi"
