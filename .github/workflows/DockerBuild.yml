@@ -7,6 +7,11 @@ on:
     branches: [ master ]
 
 jobs:
+  sample-job-1:
+      runs-on: ubuntu-latest
+      steps:
+          - name: step-1
+            run: echo "${NUGET_CUSTOMFEEDPASSWORD}"
 
   build:
 
