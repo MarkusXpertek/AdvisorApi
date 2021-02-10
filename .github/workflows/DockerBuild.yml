@@ -7,12 +7,6 @@ on:
     branches: [ master ]
 
 jobs:
-  sample-job-1:
-      runs-on: ubuntu-latest
-      steps:
-          - name: step-1
-            run: echo "${NUGET_CUSTOMFEEDPASSWORD}"
-
   build:
 
     runs-on: ubuntu-latest
@@ -21,3 +15,17 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s) 
+
+ 
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Run API Tests
+      id: run-newman
+      uses: anthonyvscode/newman-action@v1
+      with:
+        collection: https://localhost:1111/swagger/v1/swagger.json
+        reporters: cli
+
+    - name: Output summary to console
+      run: echo ${{ steps.run-newman.outputs.summary }}
