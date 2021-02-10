@@ -16,7 +16,14 @@ jobs:
     - name: Build the Docker image
       run: docker build -t advisorapi:latest . --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s) 
 
-
+  compose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: advisorapi@latest
+        with:
+         compose-file: './docker/docker-compose.yml'
+  
   newman:
     runs-on: ubuntu-latest
     steps:
