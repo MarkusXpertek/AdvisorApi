@@ -24,7 +24,7 @@ jobs:
       - uses: isbang/compose-action@v0.1
         with:
          run: dir
-         compose-file: "Docker/docker-compose.yml"
+         compose-file: "/Docker/docker-compose.yml"
   
   newman:
     needs: compose
