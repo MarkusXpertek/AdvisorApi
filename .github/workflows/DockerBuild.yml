@@ -20,6 +20,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: markusxpertek/advisorapi@latest
       - uses: isbang/compose-action@v0.1
         with:
          run: dir
