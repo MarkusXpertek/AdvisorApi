@@ -17,6 +17,7 @@ jobs:
       run: docker build -t markusXpertek/advisorapi:latest . --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s)
   
   compose:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: markusXpertek/advisorapi@latest
@@ -26,7 +27,7 @@ jobs:
          compose-file: "Docker/docker-compose.yml"
 
   newman:
-    needs: build
+    needs: compose
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@master
