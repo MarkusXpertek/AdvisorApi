@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: isbang/compose-action@v0.1
         with:
-         run: dir
+         run: docker build -t markusxpertek/advisorapi:latest --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}}
          compose-file: "Docker/docker-compose.yml"
       
       # Runs a single command using the runners shell
