@@ -20,8 +20,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: markusxpertek/advisorapi@latest
       - uses: isbang/compose-action@v0.1
+      - uses: markusxpertek/advisorapi@latest
         with:
          run: dir
          compose-file: "Docker/docker-compose.yml"
