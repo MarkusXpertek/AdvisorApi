@@ -14,7 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build -t advisorapi:latest . --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s) 
+      run: docker build -t advisorapi:latest . --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s)
+
+  
 
   compose:
     needs: build
@@ -23,7 +25,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: isbang/compose-action@v0.1
         with:
-         compose-file: "./Docker/docker-compose.yml"
+         compose-file: "./docker-compose.yml"
   
   newman:
     needs: compose
