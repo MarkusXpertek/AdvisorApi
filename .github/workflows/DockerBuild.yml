@@ -20,8 +20,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: isbang/compose-action@v0.1
+      - uses: actions/checkout@v2
         with:
          run: dir
          compose-file: "./Docker/docker-compose.yml"
