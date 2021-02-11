@@ -16,7 +16,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s) 
 
- 
     - name: Checkout
       uses: actions/checkout@v1
 
