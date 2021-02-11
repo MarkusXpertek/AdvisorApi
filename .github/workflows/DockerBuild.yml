@@ -33,7 +33,7 @@ jobs:
       - uses: isbang/compose-action@v0.1
       - uses: actions/checkout@v2
         with:
-         compose-file: ".Docker/docker-compose.yaml"
+         compose-file: "Docker/docker-compose.yml"
   
   newman:
     needs: compose
