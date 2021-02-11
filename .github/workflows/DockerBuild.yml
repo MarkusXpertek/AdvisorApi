@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: isbang/compose-action@v0.1
         with:
-         compose-file: 'docker/docker-compose.yml'
+         compose-file: docker/docker-compose.yml
   
   newman:
     runs-on: ubuntu-latest
