@@ -17,14 +17,15 @@ jobs:
       run: docker build -t advisorapi:latest . --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s)
 
   compose:
+    name: compose
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: isbang/compose-action@v0.1
       - uses: actions/checkout@v2
+      - uses: isbang/compose-action@v0.1
         with:
          run: dir
-         compose-file: "./Docker/docker-compose.yml"
+         compose-file: "Docker/docker-compose.yml"
   
   newman:
     needs: compose
