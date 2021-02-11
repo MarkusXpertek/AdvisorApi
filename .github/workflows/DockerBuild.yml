@@ -14,17 +14,25 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s) 
+      run: docker build -t advisorapi:latest . --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s)
 
-    - name: Checkout
-      uses: actions/checkout@v1
+  
 
-    - name: Run API Tests
-      id: run-newman
-      uses: anthonyvscode/newman-action@v1
-      with:
-        collection: https://localhost:1111/swagger/v1/swagger.json
-        reporters: cli
-
-    - name: Output summary to console
-      run: echo ${{ steps.run-newman.outputs.summary }}
+  compose:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: isbang/compose-action@v0.1
+        with:
+         compose-file: "./docker-compose.yml"
+  
+  newman:
+    needs: compose
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@master
+        - uses: matt-ball/newman-action@master
+          with:
+            collection: Postman/AddvisorApi.postman_collection.json
+            environment: My Workspace.postman_globals.json
