@@ -34,5 +34,8 @@ networks:
 
 volumes:
   data:
+    type:bind
   log:
+    type:bind
   secrets:
+    type:bind
