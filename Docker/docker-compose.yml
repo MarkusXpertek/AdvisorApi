@@ -12,7 +12,6 @@ services:
     - creditdatanetwork
     depends_on:
     - mssql
-
   mssql:
     image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
     ports:
@@ -24,18 +23,12 @@ services:
     networks:
     - creditdatanetwork
     volumes:
-    - data: /var/opt/mssql/data
-    - log: /var/opt/mssql/log
-    - secrets: /var/opt/mssql/secrets
-
-
+     - data:/var/opt/mssql/data
+     - log:/var/opt/mssql/log
+     - secrets:/var/opt/mssql/secrets
 networks:
   creditdatanetwork:
-
 volumes:
   data:
-    type:bind
   log:
-    type:bind
   secrets:
-    type:bind
