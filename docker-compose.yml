@@ -22,7 +22,7 @@ services:
     - SA_PASSWORD=Markus@2
     - MSSQL_PID=Developer
     networks:
-    - creditdatanetwork
+    - creditdatanetwor
     volumes:
     - type: bind
       source: ./sql
@@ -36,4 +36,4 @@ services:
 
 
 networks:
-  creditdatanetwork:
+  creditdatanetwor:
