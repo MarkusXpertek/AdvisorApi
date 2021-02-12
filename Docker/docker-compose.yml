@@ -26,6 +26,12 @@ services:
     volumes:
     - type: bind
       source: ./secrets
+      target: /var/opt/mssql/data
+    - type: bind
+      source: ./secrets
+      target: /var/opt/mssql/log
+    - type: bind
+      source: ./secrets
       target: /var/opt/mssql/secrets
 
 
