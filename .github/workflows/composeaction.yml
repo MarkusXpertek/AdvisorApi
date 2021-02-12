@@ -25,9 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       # # Build the two required docker images into the local docker image repo from this version of the code.
-      - run: docker build -t markusxpertek/advisorapi:latest -f ~/repo/AdvisorApi/Docker/Dockerfile ~/repo
+      - run: docker build -t markusxpertek/advisorapi:latest -f ./Docker/Dockerfile 
       # # Start the quickstart instance, as it models a fully featured running CreditDataReportSesrvice environment, which is ideal for running Postman tests against.
-      - run: docker-compose -f ~/repo/AdvisorApi/Docker/docker-compose.yml up -d
+      - run: docker-compose -f ./Docker/docker-compose.yml up -d
       
       # Runs a single command using the runners shell
       - name: Run a one-line script
