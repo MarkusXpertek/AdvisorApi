@@ -28,7 +28,7 @@ services:
       source: ./data
       target: /var/opt/mssql/data
     - type: bind
-      source: ./data
+      source: ./log
       target: /var/opt/mssql/log
     - type: bind
       source: ./data
