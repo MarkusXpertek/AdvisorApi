@@ -25,10 +25,10 @@ services:
     - creditdatanetwork
     volumes:
     - type: bind
-      source: ./data
+      source: ./secrets
       target: /var/opt/mssql/data
     - type: bind
-      source: ./secrets
+      source: ./data
       target: /var/opt/mssql/log
     - type: bind
       source: ./secrets
