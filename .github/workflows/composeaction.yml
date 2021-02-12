@@ -24,10 +24,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - run: docker build . -t markusxpertek/advisorapi:latest --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s) -v secrets -v logs -v data
-      - uses: isbang/compose-action@v0.1
-        with:
-         compose-file: "Docker/docker-compose.yml"
+      # # Build the two required docker images into the local docker image repo from this version of the code.
+      - run: docker build -t xpertekacquire/creditdatawebapi:1.0.0 -f ~/Docker/Dockerfile ~/repo
+      # # Start the quickstart instance, as it models a fully featured running CreditDataReportSesrvice environment, which is ideal for running Postman tests against.
+      - run: docker-compose -f ~/Docker/docker-compose.yml up -d
       
       # Runs a single command using the runners shell
       - name: Run a one-line script
