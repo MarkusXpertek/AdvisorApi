@@ -23,6 +23,10 @@ services:
     - MSSQL_PID=Developer
     networks:
     - creditdatanetwork
+    volumes:
+    - type: bind
+      source: ./data
+      target: /var/opt/mssql/data
 
 
 networks:
