@@ -25,13 +25,13 @@ services:
     - creditdatanetwork
     volumes:
     - type: bind
-      source: AdvisorApi/Docker/data
+      source: /Docker/data
       target: /var/opt/mssql/data
     - type: bind
-      source: AdvisorApi/Docker/log
+      source: /Docker/log
       target: /var/opt/mssql/log
     - type: bind
-      source: AdvisorApi/Docker/secrets
+      source: /Docker/secrets
       target: /var/opt/mssql/secrets
 
 
