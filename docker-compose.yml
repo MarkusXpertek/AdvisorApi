@@ -12,7 +12,7 @@ services:
     - creditdatanetwork
     depends_on:
     - mssql
-
+    
   mssql:
     image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
     ports:
