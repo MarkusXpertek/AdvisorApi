@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: apk update
-    - run: apk upgrade
-    - run: apk --no-cache add --update git openssh
+    - run: apt update
+    - run: apt upgrade
+    - run: apt --no-cache add --update git openssh
     - uses: actions/checkout@v2
     - run: dotnet restore
     - run: dotnet build
