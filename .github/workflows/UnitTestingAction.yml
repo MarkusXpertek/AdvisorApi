@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: apt update
-    - run: apt upgrade
-    - run: apt --no-cache add --update git openssh
+    - run: sudo apt update
+    - run: sudo apt upgrade
+    - run: sudo apt --no-cache add --update git openssh
     - uses: actions/checkout@v2
     - run: dotnet restore
     - run: dotnet build
