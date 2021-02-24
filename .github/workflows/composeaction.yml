@@ -10,12 +10,12 @@ on:
   pull_request:
     branches: [ master ]
 
-  env:
-  # TODO: Change variable to your image's name.
-  IMAGE_NAME: image
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+env:
+# TODO: Change variable to your image's name.
+IMAGE_NAME: image
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
