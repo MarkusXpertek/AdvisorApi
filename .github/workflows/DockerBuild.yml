@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
     - uses: actions/checkout@v2
@@ -18,5 +18,14 @@ jobs:
       # # Start the quickstart instance, as it models a fully featured running CreditDataReportSesrvice environment, which is ideal for running Postman tests against.
     - run: docker-compose -v
     - run: docker-compose -f Docker/docker-compose.yml up -d
-    - run: sudo npm install -g newman
-    - run: newman run Postman/AddvisorApi.postman_collection.json -e Postman/Development.postman_environment.json
+    
+        - run: sudo npm install -g newman
+        - run: newman run Postman/AddvisorApi.postman_collection.json -e Postman/Development.postman_environment.json
+
+  newman:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+        - run: sudo npm install -g newman
+        - run: newman run Postman/AddvisorApi.postman_collection.json -e Postman/Development.postman_environment.json
