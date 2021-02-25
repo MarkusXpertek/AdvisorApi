@@ -14,7 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build -t markusxpertek/advisorapi:latest . --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . -t markusxpertek/advisorapi:latest --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s)
+      # # Start the quickstart instance, as it models a fully featured running CreditDataReportSesrvice environment, which is ideal for running Postman tests against.
+      - run: docker-compose -v
+      - run: docker-compose -f Docker/docker-compose.yml up -d
 
   newman:
     needs: build
