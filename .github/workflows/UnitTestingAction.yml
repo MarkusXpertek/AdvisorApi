@@ -14,7 +14,7 @@ jobs:
     steps:
     - run: sudo apt update
     - run: sudo apt upgrade
-    - run: sudo apt --update git openssh
+    - run: sudo apt --update git opens
     - uses: actions/checkout@v2
     - run: dotnet restore
     - run: dotnet build
