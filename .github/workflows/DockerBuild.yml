@@ -35,8 +35,9 @@ jobs:
     # Install newman
     - name: Install newman
       run: | 
-        npm install -g newman
+        npm install -g newman:10
         npm install -g newman-reporter-htmlextra
+
     - name: Build the Docker image
       run: docker build . -t markusxpertek/advisorapi:latest --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s)
     - run: docker-compose -v
