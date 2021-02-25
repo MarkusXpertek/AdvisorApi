@@ -16,5 +16,5 @@ jobs:
     - run: sudo apt install openssh-server git
     - uses: actions/checkout@v2
     - run: dotnet restore
-    - run: dotnet build
+    - run: dotnet build . --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile
     - run: dotnet test --no-build -c debug /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
