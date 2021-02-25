@@ -8,9 +8,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
@@ -18,7 +16,15 @@ jobs:
       # # Start the quickstart instance, as it models a fully featured running CreditDataReportSesrvice environment, which is ideal for running Postman tests against.
     - run: docker-compose -v
     - run: docker-compose -f Docker/docker-compose.yml up -d
+    
+    # Install Node.js environment
+    - name: set up node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+
     - run: sudo npm install -g newman
+    - run: newman -v
     - run: newman run Postman/AddvisorApi.postman_collection.json
 
   newman:
@@ -35,7 +41,7 @@ jobs:
     # Install newman
     - name: Install newman
       run: | 
-        npm install -g newman:10
+        npm install -g newman
         npm install -g newman-reporter-htmlextra
 
     - name: Build the Docker image
