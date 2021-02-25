@@ -13,8 +13,7 @@ jobs:
 
     steps:
     - run: sudo apt update
-    - run: sudo apt upgrade
-    - run: sudo apt --update git openssh
+    - run: sudo apt install openssh-server git
     - uses: actions/checkout@v2
     - run: dotnet restore
     - run: dotnet build
