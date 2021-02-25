@@ -21,5 +21,5 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
         - uses: actions/checkout@master
-        - run: npm install -g newman
+        - run: sudo npm install -g newman
         - run: newman run Postman/AddvisorApi.postman_collection.json -e Postman/MyWorkspace.postman_globals.json
