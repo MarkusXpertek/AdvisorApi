@@ -15,6 +15,6 @@ jobs:
     - run: sudo apt update
     - run: sudo apt install openssh-server git
     - uses: actions/checkout@v2
-    - run: dotnet build . --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile
+    - run: docker build . -t markusxpertek/advisorapi:latest --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s)
     - run: dotnet restore
     - run: dotnet test --no-build -c debug /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
