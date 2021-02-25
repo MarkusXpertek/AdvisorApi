@@ -7,24 +7,11 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . -t markusxpertek/advisorapi:latest --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s)
-      # # Start the quickstart instance, as it models a fully featured running CreditDataReportSesrvice environment, which is ideal for running Postman tests against.
-    - run: docker-compose -v
-    - run: docker-compose -f Docker/docker-compose.yml up -d
-    - run: sudo npm install -g newman
-    - run: newman run Postman/AddvisorApi.postman_collection.json
-
   newman:
     needs: build
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
-        - run: sudo npm install -g newman
-        - run: newman run Postman/AddvisorApi.postman_collection.json -e Postman/Development.postman_environment.json
+    - uses: actions/checkout@master
+    - uses: matt-ball/newman-action@master
+      with:
+        collection: Postman/AddvisorApi.postman_collection.json
