@@ -22,4 +22,4 @@ jobs:
     steps:
         - uses: actions/checkout@master
         - run: npm install -g newman
-        - newman run Postman/AddvisorApi.postman_collection.json -e Postman/MyWorkspace.postman_globals.json
+        - run: newman run Postman/AddvisorApi.postman_collection.json -e Postman/MyWorkspace.postman_globals.json
