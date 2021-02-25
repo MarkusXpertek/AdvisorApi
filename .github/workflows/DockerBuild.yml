@@ -24,7 +24,7 @@ jobs:
   newman:
     runs-on: ubuntu-latest
     steps:
-    
+    - run: sudo apt update
     - uses: actions/checkout@v2
     # Install Node.js environment
     - name: set up node
