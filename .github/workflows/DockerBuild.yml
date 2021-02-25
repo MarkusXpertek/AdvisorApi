@@ -17,9 +17,9 @@ jobs:
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     # Install Node.js environment
     - run: |
-       npm install v10
+       nvm install v10
        node -v
-       npm alias default v10
+       nvm alias default v10
     - run: node -v
     - run: docker-compose -v
     - run: docker -v
