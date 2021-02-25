@@ -14,7 +14,7 @@ jobs:
     # # Start the quickstart instance, as it models a fully featured running CreditDataReportSesrvice environment, which is ideal for running Postman tests against.
     - run: docker-compose -v
     - run: docker-compose -f Docker/docker-compose.yml up -d
-    - run: 10
+    - run: sleep 10
     - name: Test_Postman
       uses: matt-ball/newman-action@master
       with:
