@@ -13,13 +13,13 @@ jobs:
  
     - run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
     - run: |
-       export NVM_DIR=~/.nvm
-       source ~/.nvm/nvm.sh
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     # Install Node.js environment
     - run: |
-       nvm install v10
+       npm install v10
        node -v
-       nvm alias default v10
+       npm alias default v10
     - run: node -v
     - run: docker-compose -v
     - run: docker -v
