@@ -18,6 +18,6 @@ jobs:
     - name: Test_Postman
       uses: matt-ball/newman-action@master
       with:
-        collection: AddvisorApi.postman_collection
+        collection: Postman/AddvisorApi.postman_collection.json
     - name: Test
       run: dotnet test --no-restore --verbosity normal
