@@ -7,53 +7,12 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
- 
-    - run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-    - run: |
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    # Install Node.js environment
-    - run: |
-       nvm install v10
-       node -v
-       nvm alias default v10
-    - run: node -v
-    - run: docker-compose -v
-    - run: docker -v
-    # Install Newman Using NPM
-    - run: npm install -g newman
-    - run: npm install -g newman-reporter-htmlextra
-    - run: newman run -h
-    
-    
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . -t markusxpertek/advisorapi:latest --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s)
-      # # Start the quickstart instance, as it models a fully featured running CreditDataReportSesrvice environment, which is ideal for running Postman tests against.
-    - run: docker-compose -f Docker/docker-compose.yml up -d
-    - run: sleep 5
-    - run: newman run Postman/AddvisorApi.postman_collection.json
-
-  newman:
+  newmanOwn:
     runs-on: ubuntu-latest
     steps:
     - run: sudo apt update
     - uses: actions/checkout@v2
     # Install Node.js environment
-    - name: set up node
-      uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-
-    # Install newman
-    - name: Install newman
-      run: | 
-        npm install -g newman
-        npm install -g newman-reporter-htmlextra
-
     - name: Build the Docker image
       run: docker build . -t markusxpertek/advisorapi:latest --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s)
     - run: docker-compose -v
