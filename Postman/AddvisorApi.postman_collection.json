@@ -31,9 +31,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://localhost:1111/api/Values/1",
+									"raw": "http://localhost:1111/api/Values/1",
 									"host": [
-										"https://localhost:1111"
+										"http://localhost:1111"
 									],
 									"path": [
 										"api",
