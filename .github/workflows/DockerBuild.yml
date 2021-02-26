@@ -12,10 +12,8 @@ jobs:
     steps:
     - run: sudo apt update
     - uses: actions/checkout@v2
-    # Install Node.js environment
     - name: Build the Docker image
       run: docker build . -t markusxpertek/advisorapi:latest --build-arg Nuget_PasswordArg=${{secrets.NUGET_CUSTOMFEEDPASSWORD}} --file Dockerfile --tag my-image-name:$(date +%s)
     - run: docker-compose -v
     - run: docker-compose -f Docker/docker-compose.yml up -d
-    - run: sudo npm install -g newman
     - run: newman run Postman/AddvisorApi.postman_collection.json
