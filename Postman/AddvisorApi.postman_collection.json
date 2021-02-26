@@ -49,9 +49,9 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "https://localhost:1111/api/Values/:id",
+											"raw": "http://localhost:1111/api/Values/:id",
 											"host": [
-												"https://localhost:1111"
+												"http://localhost:1111"
 											],
 											"path": [
 												"api",
@@ -107,9 +107,9 @@
 									"raw": "\"<string>\""
 								},
 								"url": {
-									"raw": "https://localhost:1111/api/Values/1",
+									"raw": "http://localhost:1111/api/Values/1",
 									"host": [
-										"https://localhost:1111"
+										"http://localhost:1111"
 									],
 									"path": [
 										"api",
@@ -129,9 +129,9 @@
 											"raw": "\"<string>\""
 										},
 										"url": {
-											"raw": "https://localhost:1111/api/Values/:id",
+											"raw": "http://localhost:1111/api/Values/:id",
 											"host": [
-												"https://localhost:1111"
+												"http://localhost:1111"
 											],
 											"path": [
 												"api",
@@ -178,9 +178,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "https://localhost:1111/api/Values/1",
+									"raw": "http://localhost:1111/api/Values/1",
 									"host": [
-										"https://localhost:1111"
+										"http://localhost:1111"
 									],
 									"path": [
 										"api",
@@ -196,9 +196,9 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "https://localhost:1111/api/Values/:id",
+											"raw": "http://localhost:1111/api/Values/:id",
 											"host": [
-												"https://localhost:1111"
+												"http://localhost:1111"
 											],
 											"path": [
 												"api",
@@ -247,9 +247,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:1111/api/Values",
+							"raw": "http://localhost:1111/api/Values",
 							"host": [
-								"https://localhost:1111"
+								"http://localhost:1111"
 							],
 							"path": [
 								"api",
@@ -264,9 +264,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://localhost:1111/api/Values",
+									"raw": "http://localhost:1111/api/Values",
 									"host": [
-										"https://localhost:1111"
+										"http://localhost:1111"
 									],
 									"path": [
 										"api",
@@ -316,9 +316,9 @@
 							"raw": "\"<string>\""
 						},
 						"url": {
-							"raw": "https://localhost:1111/api/Values",
+							"raw": "http://localhost:1111/api/Values",
 							"host": [
-								"https://localhost:1111"
+								"http://localhost:1111"
 							],
 							"path": [
 								"api",
@@ -337,9 +337,9 @@
 									"raw": "\"<string>\""
 								},
 								"url": {
-									"raw": "https://localhost:1111/api/Values",
+									"raw": "http://localhost:1111/api/Values",
 									"host": [
-										"https://localhost:1111"
+										"http://localhost:1111"
 									],
 									"path": [
 										"api",
@@ -367,7 +367,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "https://localhost:49179",
+			"value": "http://localhost:49179",
 			"type": "string"
 		}
 	]
