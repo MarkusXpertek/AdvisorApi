@@ -21,7 +21,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v1
       - name: use this action, test solution dir
-        uses: ./
         with:
           project_path: AdvisorApi/AdiserUnitTests
           report_name: my_project_tests
