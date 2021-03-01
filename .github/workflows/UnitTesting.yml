@@ -23,11 +23,29 @@ jobs:
         id: testAction3a2
         uses: ./
         with:
-          project_path: tests/samples.xunit/AssertExamples
-          report_name: tests_1_xunit_altxsl-${{ matrix.os }}
-          report_title: Sample XUnit Tests (Alt XSL) (${{ matrix.os }})
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          gist_name: dotnet-tests-report_xunit_altxsl-${{ matrix.os }}.md
+          project_path: AdvisorApi/AdvisorApi
+          report_name: tests_1_xunit_altxsl-$
+          report_title: Sample XUnit Tests (Alt XSL) 
+          github_token: ${{secrets.NUGET_CUSTOMFEEDPASSWORD}}
+          gist_name: dotnet-tests-report_xunit_altxsl.md
           gist_badge_label: 'XUnit Tests (Alt XSL): %Counters_passed%/%Counters_total%'
-          gist_token: ${{ secrets.GIST_TOKEN }}
+          gist_token: ${{secrets.NUGET_CUSTOMFEEDPASSWORD}}
           trx_xsl_path: trx-report/trx2md-alt-sample.xsl
+
+      - name: use this action, test solution dir
+        uses: zyborg/dotnet-tests-report@v1
+        with:
+          project_path: AdvisorApi/AdvisorApi
+          report_name: my_project_tests
+          report_title: My Project Tests
+          github_token: ${{secrets.NUGET_CUSTOMFEEDPASSWORD}}
+
+      - name: dump test results
+        shell: pwsh
+        run: |
+          Write-ActionInfo 'Testing on: ${{ matrix.os }}'
+          Write-ActionInfo '  xUnit:'
+          Write-ActionInfo '    * result_value = ${{ steps.testAction3a.outputs.result_value }}'
+          Write-ActionInfo '    * total_count  = ${{ steps.testAction3a.outputs.total_count }}'
+          Write-ActionInfo '    * passed_count = ${{ steps.testAction3a.outputs.passed_count }}'
+          Write-ActionInfo '    * failed_count = ${{ steps.testAction3a.outputs.failed_count }}'
