@@ -23,7 +23,7 @@ jobs:
       - name: use this action, xunit project dir, ALTERNATE XSL
         if: ${{ !cancelled() }}
         id: testAction3a2
-        uses: ./
+        uses: zyborg/dotnet-tests-report@v1
         with:
           project_path: tests/samples.xunit/AssertExamples
           report_name: tests_1_xunit_altxsl
