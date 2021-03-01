@@ -30,5 +30,4 @@ jobs:
       - run: dotnet test --no-build -c debug /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
       - with:
           root: ~/build
-          paths: "XUnitTestProjectCreditData/*"
 
