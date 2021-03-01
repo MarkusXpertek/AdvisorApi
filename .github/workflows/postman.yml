@@ -19,6 +19,5 @@ jobs:
       uses: matt-ball/newman-action@master
       with:
         collection: Postman/AddvisorApi.postman_collection.json
-        environment: Postman/Development.postman_environment.json
     - name: Test
-      run: dotnet test --no-re
+      run: dotnet test --no-restore --verbosity normal
