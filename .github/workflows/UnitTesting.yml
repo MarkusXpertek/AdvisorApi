@@ -22,7 +22,7 @@ jobs:
       - name: unit tests for Contoso Business Layer
         uses: zyborg/dotnet-tests-report@v1
         with:
-          project_path: AdiserUnitTests/AdiserUnitTests.csproj
+          project_path: AdiserUnitTests/AdiserUnitTests
           report_name: contoso_business_tests
           report_title: Contos Business Tests
           github_token: ${{secrets.NUGET_CUSTOMFEEDPASSWORD}}
