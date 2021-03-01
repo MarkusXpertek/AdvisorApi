@@ -30,13 +30,3 @@ jobs:
           gist_badge_label: 'Contoso Business: %Counters_passed%/%Counters_total%'
           gist_token: ${{secrets.NUGET_CUSTOMFEEDPASSWORD}}
 
-      - name: unit tests for Contoso Service Layer
-        uses: zyborg/dotnet-tests-report@v1
-        with:
-          project_path: AdiserUnitTests/AdiserUnitTests.csproj
-          report_name: contoso_service_tests
-          report_title: Contos Service Tests
-          github_token: ${{secrets.NUGET_CUSTOMFEEDPASSWORD}}
-          gist_name: contoso_service_tests.md
-          gist_badge_label: 'Contoso Service: %Counters_passed%/%Counters_total%'
-          gist_token: ${{ secrets.GIST_TOKEN }}
