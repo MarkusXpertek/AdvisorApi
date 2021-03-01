@@ -23,7 +23,7 @@ jobs:
         id: testAction3a2
         uses: ./
         with:
-          project_path: AdvisorApi/AdvisorApi
+          project_path: AdvisorApi/AdiserUnitTests
           report_name: tests_1_xunit_altxsl-$
           report_title: Sample XUnit Tests (Alt XSL) 
           github_token: ${{secrets.NUGET_CUSTOMFEEDPASSWORD}}
@@ -35,7 +35,7 @@ jobs:
       - name: use this action, test solution dir
         uses: zyborg/dotnet-tests-report@v1
         with:
-          project_path: AdvisorApi/AdvisorApi
+          project_path: AdvisorApi/AdiserUnitTests
           report_name: my_project_tests
           report_title: My Project Tests
           github_token: ${{secrets.NUGET_CUSTOMFEEDPASSWORD}}
