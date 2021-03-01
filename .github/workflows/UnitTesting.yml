@@ -18,10 +18,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: use this action, test solution dir
-        uses: zyborg/dotnet-tests-report@v1
+      - name: use this action, xunit project dir, ALTERNATE XSL
+        if: ${{ !cancelled() }}
+        id: testAction3a2
+        uses: ./
         with:
-          project_path: AdvisorApi/AdvisorApi
-          report_name: my_project_tests
-          report_title: My Project Tests
-          github_token: ${{secrets.NUGET_CUSTOMFEEDPASSWORD}}
+          project_path: tests/samples.xunit/AssertExamples
+          report_name: tests_1_xunit_altxsl-${{ matrix.os }}
+          report_title: Sample XUnit Tests (Alt XSL) (${{ matrix.os }})
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          gist_name: dotnet-tests-report_xunit_altxsl-${{ matrix.os }}.md
+          gist_badge_label: 'XUnit Tests (Alt XSL): %Counters_passed%/%Counters_total%'
+          gist_token: ${{ secrets.GIST_TOKEN }}
+          trx_xsl_path: trx-report/trx2md-alt-sample.xsl
